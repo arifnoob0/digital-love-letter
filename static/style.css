@@ -121,6 +121,9 @@ input, textarea, select {
     .letter-container {
         padding: 15px;
     }
+	footer {
+        position: relative;
+    }
 }
 footer {
     position: fixed;
@@ -130,7 +133,11 @@ footer {
     color: white;
     padding: 10px;
     font-size: 14px;
-    text-align: center; /* <-- This fixes the centering */
+    text-align: center; /* centers the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	
 }
 
 
