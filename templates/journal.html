@@ -13,7 +13,7 @@
 
         <textarea name="message" placeholder="Your sweet message" required></textarea><br>
 
-        <label for="mood">Mood check 🧠:</label>
+        <label for="mood">Mood check 🧠:</label><br>
         <select name="mood" required>
             <option value="">-- Pick one --</option>
             <option value="😊 Happy">😊 Happy</option>
@@ -35,12 +35,14 @@
             <h3>{{ entry.title }}</h3>
             <p>{{ entry.message }}</p>
             <p><strong>Mood:</strong> {{ entry.mood }}</p>
+
             {% if entry.private_note %}
-                <details>
-                    <summary>💌 Message just for Arif</summary>
-                    <p>{{ entry.private_note }}</p>
-                </details>
+            <details>
+                <summary>💌 Message just for Arif</summary>
+                <p>{{ entry.private_note }}</p>
+            </details>
             {% endif %}
+
             <small>{{ entry.date }}</small><br>
             <a href="{{ url_for('delete', entry_id=entry.id) }}">❌ Delete</a>
         </div>
