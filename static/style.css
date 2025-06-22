@@ -122,6 +122,16 @@ input, textarea, select {
         padding: 15px;
     }
 }
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #ffc0cb;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center; /* <-- This fixes the centering */
+}
 
 
 
