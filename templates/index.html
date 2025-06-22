@@ -3,73 +3,68 @@
 
 {% block content %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <div class="countdown">
   <h2>Countdown to Kyraa's Birthday</h2>
   <p>{{ days }} days {{ hours }} hours {{ minutes }} minutes {{ seconds }} seconds left</p>
- <body>
+
   {% if is_birthday %}
-    <h2>Happy Birthday, Sayang! 🎉🎂</h2>
+    <h2>Happy Birthday, Kyraa! 🎉🎂</h2>
     <p>Wishing you the sweetest day ever!</p>
-  {% else %}
   {% endif %}
-
-</body>
-
 </div>
+
 <div class="letter-container">
-    <h1>Dear Sayang 💖</h1>
-    <p>
-    Sayang, every day with you is a blessing I never take for granted. From the first moment we talked, I knew there was something different—something beautiful about you. You've brought light into my darkest days, comfort to my anxious thoughts, and joy that words can never fully capture.
-	</p>
+  <h1>Dear Kyraa 💖</h1>
+  <p>
+    Kyraa, every day with you is a blessing I never take for granted. From the first moment we talked, I knew there was something different—something beautiful about you. You've brought light into my darkest days, comfort to my anxious thoughts, and joy that words can never fully capture.
+  </p>
 
-	<p>
-		Your smile is my sunrise, your voice is my favorite melody, and your love is my home. I love how your eyes light up when you're excited, how you care so deeply for others, and how effortlessly you make me feel seen and loved.
-	</p>
+  <p>
+    Your smile is my sunrise, your voice is my favorite melody, and your love is my home. I love how your eyes light up when you're excited, how you care so deeply for others, and how effortlessly you make me feel seen and loved.
+  </p>
 
-	<p>
-		I promise to always be by your side—to lift you when you're down, to celebrate your victories, to grow with you, and to love you through every version of yourself. No matter what challenges life throws our way, I want you to know I choose you. Every single day.
-	</p>
+  <p>
+    I promise to always be by your side—to lift you when you're down, to celebrate your victories, to grow with you, and to love you through every version of yourself. No matter what challenges life throws our way, I want you to know I choose you. Every single day.
+  </p>
 
-	<p>
-		Thank you for being my partner, my strength, and my Sayang. This journey with you has only just begun, and I can't wait for all the memories, dreams, and adventures we’ll share ahead. You are everything to me, and more than I ever dreamed of. I love you always and forever.
-	</p>
-	<p style="font-style: italic; color: #d10063;">💌 {{ quote }}</p>
+  <p>
+    Thank you for being my partner, my strength, and my Kyraa. This journey with you has only just begun, and I can't wait for all the memories, dreams, and adventures we’ll share ahead. You are everything to me, and more than I ever dreamed of. I love you always and forever.
+  </p>
 
+  <p style="font-style: italic; color: #d10063;">💌 {{ quote }}</p>
 
-    <button onclick="toggleSecret()">Cuba tekan kat sini ehehehe</button>
-    <div id="secret-message" style="display: none;">
-        <p>I love you so much and forever, sayangku ❤️</p>
-    </div>
+  <button onclick="toggleSecret()">Cuba tekan kat sini ehehehe</button>
+  <div id="secret-message" style="display: none;">
+    <p>I love you so much and forever, sayangku ❤️</p>
+  </div>
 
-    <button onclick="togglePicture()">Wanna see our picture? 📸</button>
-    <div id="our-photo" style="display: none; margin-top: 20px;">
-        <img src="{{ url_for('static', filename='us-together.jpg') }}" alt="Us together" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-    </div>
-	
-	
-	<a href="/journal">📝 Open Our Journal</a>
+  <button onclick="togglePicture()">Wanna see our picture? 📸</button>
+  <div id="our-photo" style="display: none; margin-top: 20px;">
+    <img src="{{ url_for('static', filename='us-together.jpg') }}" alt="Us together" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+  </div>
+
+  <a href="/journal">📝 Open Our Journal</a>
 </div>
-<script>
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.classList.add('heart');
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.innerText = "💖";
-        document.body.appendChild(heart);
 
-        setTimeout(() => heart.remove(), 5000);
-    }
-
-    setInterval(createHeart, 800);
-</script>
 <script>
-function toggleSecret() {
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.innerText = "💖";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+  setInterval(createHeart, 800);
+
+  function toggleSecret() {
     const msg = document.getElementById("secret-message");
     msg.style.display = msg.style.display === "none" ? "block" : "none";
-}
-function togglePicture() {
+  }
+  function togglePicture() {
     const photo = document.getElementById("our-photo");
     photo.style.display = photo.style.display === "none" ? "block" : "none";
-}
-
+  }
+</script>
 {% endblock %}
