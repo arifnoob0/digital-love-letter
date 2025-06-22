@@ -17,6 +17,10 @@ LOVE_QUOTES = [
 app = Flask(__name__)
 JOURNAL_FILE = "journal.json"
 
+def is_birthday():
+    today = datetime.now().strftime('%m-%d')
+    return today == '08-30'
+
 def load_entries():
     if not os.path.exists(JOURNAL_FILE):
         return []
@@ -37,7 +41,12 @@ def journal():
     print("📝 /journal route loaded")
     entries = load_entries()
     print("Entries:", entries)
-    return render_template("journal.html", entries=entries)
+
+    # Check if today is August 30
+    today = datetime.now()
+    is_birthday = (today.month == 8 and today.day == 30)
+
+    return render_template("journal.html", entries=entries, is_birthday=is_birthday)
 
 @app.route("/add", methods=["POST"])
 def add():

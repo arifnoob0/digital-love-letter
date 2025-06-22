@@ -44,5 +44,51 @@
         <a href="{{ url_for('delete', entry_id=entry.id) }}">❌ Delete</a>
     </div>
     <hr>
+</script>
+<div id="birthday-countdown" style="margin-top: 20px; font-weight: bold; color: #b30059;">
+    Countdown to Kyraa's Birthday: <span id="countdown"></span>
+</div>
+<script>
+    function updateCountdown() {
+        const birthday = new Date(new Date().getFullYear(), 7, 30); // August is month 7 (0-indexed)
+        const now = new Date();
+
+        // If birthday already passed this year, set to next year
+        if (now > birthday) {
+            birthday.setFullYear(birthday.getFullYear() + 1);
+        }
+
+        const diff = birthday - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('countdown').textContent =
+            `${days} days ${hours}h ${minutes}m ${seconds}s`;
+
+        // When it’s the birthday
+        if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+            document.getElementById('birthday-countdown').textContent = "🎉 Happy Birthday Kyraa! 🎉";
+            // TODO: Trigger birthday wishes mode
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+</script>
+{% if is_birthday %}
+    <div class="entry">
+        <h2>🎉 Happy Birthday Kyraa! 🎉</h2>
+        <p>You're the brightest part of my life. Today, we celebrate you! I love you so much 💖</p>
+    </div>
+{% else %}
+    {% for entry in entries %}
+        <div class="entry">
+            <p><strong>{{ entry.date }}</strong></p>
+            <p>{{ entry.content }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
 {% endfor %}
 {% endblock %}
