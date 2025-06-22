@@ -46,3 +46,38 @@ button:hover {
     font-weight: bold;
     color: #d10063;
 }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff0f5;
+    text-align: center;
+    color: #b30059;
+    padding: 20px;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+input, textarea, select {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #ff66b2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.entry {
+    background-color: #ffe6f0;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}

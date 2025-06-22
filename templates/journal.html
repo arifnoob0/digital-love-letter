@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sayang Journal 💖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Our Love Journal 📔</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Title" required><br>
+
+        <textarea name="message" placeholder="Your sweet message" required></textarea><br>
+
+        <label for="mood">Mood check 🧠:</label>
+        <select name="mood" required>
+            <option value="">-- Pick one --</option>
+            <option value="😊 Happy">😊 Happy</option>
+            <option value="😢 Sad">😢 Sad</option>
+            <option value="😠 Angry">😠 Angry</option>
+            <option value="🥰 In Love">🥰 In Love</option>
+            <option value="🤔 Thinking of Arif">🤔 Thinking of Arif</option>
+        </select><br><br>
+
+        <textarea name="private_note" placeholder="Write something personal just for Arif ❤️ (optional)"></textarea><br>
+
+        <button type="submit">Add Entry 💌</button>
+    </form>
+
+    <hr>
+
+    {% for entry in entries %}
+        <div class="entry">
+            <h3>{{ entry.title }}</h3>
+            <p>{{ entry.message }}</p>
+            <p><strong>Mood:</strong> {{ entry.mood }}</p>
+            {% if entry.private_note %}
+                <details>
+                    <summary>💌 Message just for Arif</summary>
+                    <p>{{ entry.private_note }}</p>
+                </details>
+            {% endif %}
+            <small>{{ entry.date }}</small><br>
+            <a href="{{ url_for('delete', entry_id=entry.id) }}">❌ Delete</a>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>
