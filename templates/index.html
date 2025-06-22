@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Untukmu Sayangku, Kyraa Khadeeja ❤️</title>
+	<title>Arif's Love Letter for Kyraa 💌</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 	<div class="letter-container">
-		<h1>Assalamualaikum Sayang.</h1>
-		<p>
-			Every moment with you feels like magic. Your smile lights up my world and your love completes me. <br>
-            You are my strength, my peace, and my everything. I’m so lucky to have you. ❤️
-		</p>
-		<button onclick="revealSecret()">Cuba tekan kat sini ehehehe</button>
-    <div id="secret-message" style="display:none; margin-top: 20px;">
-    <p>I love you so much and forever, sayangku ❤️</p>
-    </div>
-<script>
-    function revealSecret() {
-        document.getElementById("secret-message").style.display = "block";
-    }
-</script>
+	    <h1>Dear Sayang 💖</h1>
+	    <p>You are my favorite hello and my hardest goodbye. Thank you for being in my life.</p>
 
-		</div>
-		<script>
-			function revealSecret() {
-				document.getElementById('secret-message').style.display = 'block' ;
-			}
-		</script>
+	    <button onclick="toggleSecret()">Cuba tekan kat sini ehehehe</button>
+	    <div id="secret-message" style="display: none;">
+	        <p>I love you so much and forever, sayangku ❤️</p>
+	    </div>
+
+	    <button onclick="togglePicture()">Wanna see our picture? 📸</button>
+	    <div id="our-photo" style="display: none; margin-top: 20px;">
+	        <img src="{{ url_for('static', filename='us-together.jpg') }}" alt="Us together" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+	    </div>
+	</div>
+
+	<script>
+	    function toggleSecret() {
+	        const msg = document.getElementById("secret-message");
+	        msg.style.display = msg.style.display === "none" ? "block" : "none";
+	    }
+
+	    function togglePicture() {
+	        const photo = document.getElementById("our-photo");
+	        photo.style.display = photo.style.display === "none" ? "block" : "none";
+	    }
+	</script>
 </body>
 </html>
