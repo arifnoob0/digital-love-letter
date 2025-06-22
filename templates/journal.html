@@ -2,6 +2,7 @@
 {% block title %}Sayang Journal 💖{% endblock %}
 
 {% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <h1>This page loaded successfully</h1>
 <h1>Our Love Journal 📔</h1>
 
@@ -42,6 +43,10 @@
         <small>{{ entry.date }}</small><br>
         <a href="{{ url_for('delete', entry_id=entry.id) }}">❌ Delete</a>
     </div>
+<footer style="position: fixed; bottom: 0; width: 100%; background: #ffc0cb; color: white; padding: 10px;">
+    Always loving you, Sayang ❤️ — Arif
+</footer>
+
     <hr>
 {% endfor %}
 {% endblock %}
