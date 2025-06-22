@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Arif's Love Letter for Kyraa 💌</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-	<div class="letter-container">
-	    <h1>Dear Sayang 💖</h1>
-	    <p>You are my favorite hello and my hardest goodbye. Thank you for being in my life.</p>
+{% extends "base.html" %}
+{% block title %}Arif's Love Letter for Kyraa 💌{% endblock %}
 
-	    <button onclick="toggleSecret()">Cuba tekan kat sini ehehehe</button>
-	    <div id="secret-message" style="display: none;">
-	        <p>I love you so much and forever, sayangku ❤️</p>
-	    </div>
+{% block content %}
+<div class="letter-container">
+    <h1>Dear Sayang 💖</h1>
+    <p>You are my favorite hello and my hardest goodbye. Thank you for being in my life.</p>
 
-	    <button onclick="togglePicture()">Wanna see our picture? 📸</button>
-	    <div id="our-photo" style="display: none; margin-top: 20px;">
-	        <img src="{{ url_for('static', filename='us-together.jpg') }}" alt="Us together" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-	    </div>
-	</div>
+    <button onclick="toggleSecret()">Cuba tekan kat sini ehehehe</button>
+    <div id="secret-message" style="display: none;">
+        <p>I love you so much and forever, sayangku ❤️</p>
+    </div>
 
-	<script>
-	    function toggleSecret() {
-	        const msg = document.getElementById("secret-message");
-	        msg.style.display = msg.style.display === "none" ? "block" : "none";
-	    }
+    <button onclick="togglePicture()">Wanna see our picture? 📸</button>
+    <div id="our-photo" style="display: none; margin-top: 20px;">
+        <img src="{{ url_for('static', filename='us-together.jpg') }}" alt="Us together" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+    </div>
+</div>
 
-	    function togglePicture() {
-	        const photo = document.getElementById("our-photo");
-	        photo.style.display = photo.style.display === "none" ? "block" : "none";
-	    }
-	</script>
-</body>
-</html>
+<script>
+function toggleSecret() {
+    const msg = document.getElementById("secret-message");
+    msg.style.display = msg.style.display === "none" ? "block" : "none";
+}
+function togglePicture() {
+    const photo = document.getElementById("our-photo");
+    photo.style.display = photo.style.display === "none" ? "block" : "none";
+}
+</script>
+{% endblock %}
