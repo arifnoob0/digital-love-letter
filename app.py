@@ -3,6 +3,7 @@ import json
 import os
 from datetime import datetime
 import random  # <-- if not already there
+import pytz
 
 LOVE_QUOTES = [
     "Every moment with you is a dream come true.",
@@ -25,6 +26,28 @@ def save_entries(entries):
     with open(JOURNAL_FILE, "w") as f:
         json.dump(entries, f, indent=4)
 
+@app.route("/add", methods=["POST"])
+def add():
+    title = request.form["title"]
+    message = request.form["message"]
+    mood = request.form.get("mood", "")
+    private_note = request.form.get("private_note", "")
+    
+    mytz = pytz.timezone('Asia/Kuala_Lumpur')
+    date = datetime.now(mytz).strftime("%Y-%m-%d %H:%M")
+
+    entries = load_entries()
+    entries.insert(0, {
+        "id": datetime.now().timestamp(),
+        "title": title,
+        "message": message,
+        "mood": mood,
+        "private_note": private_note,
+        "date": date
+    })
+    save_entries(entries)
+    return redirect(url_for("journal"))
+    
 @app.route("/")
 def home():
     quote = random.choice(LOVE_QUOTES)
