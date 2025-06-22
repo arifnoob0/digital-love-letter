@@ -3,6 +3,21 @@
 
 {% block content %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="countdown">
+  <h2>Countdown to Kyraa's Birthday</h2>
+  <p>{{ days }} days {{ hours }} hours {{ minutes }} minutes {{ seconds }} seconds left</p>
+ <body>
+  {% if is_birthday %}
+    <h2>Happy Birthday, Sayang! 🎉🎂</h2>
+    <p>Wishing you the sweetest day ever!</p>
+  {% else %}
+    <h2>Countdown to Kyraa's Birthday</h2>
+    <p>{{ days_left }} day{{ 's' if days_left != 1 else '' }} left!</p>
+  {% endif %}
+
+</body>
+
+</div>
 <div class="letter-container">
     <h1>Dear Sayang 💖</h1>
     <p>

@@ -31,10 +31,38 @@ def save_entries(entries):
     with open(JOURNAL_FILE, "w") as f:
         json.dump(entries, f, indent=4)
 
+from datetime import datetime
+
 @app.route("/")
 def home():
     quote = random.choice(LOVE_QUOTES)
-    return render_template("index.html", quote=quote)
+
+    # Calculate countdown to August 30th, this year or next year if passed
+    now = datetime.now()
+    current_year = now.year
+    birthday = datetime(current_year, 8, 30)
+
+    # If birthday already passed this year, use next year
+    if now > birthday:
+        birthday = datetime(current_year + 1, 8, 30)
+
+    diff = birthday - now
+
+    days = diff.days
+    seconds_left = diff.seconds
+    hours = seconds_left // 3600
+    minutes = (seconds_left % 3600) // 60
+    seconds = seconds_left % 60
+
+    return render_template(
+        "index.html",
+        quote=quote,
+        days=days,
+        hours=hours,
+        minutes=minutes,
+        seconds=seconds,
+    )
+
 
 @app.route("/journal")
 def journal():
