@@ -19,6 +19,7 @@
 	<p>
 		Thank you for being my partner, my strength, and my Sayang. This journey with you has only just begun, and I can't wait for all the memories, dreams, and adventures we’ll share ahead. You are everything to me, and more than I ever dreamed of. I love you always and forever.
 	</p>
+	<p style="font-style: italic; color: #d10063;">💌 {{ quote }}</p>
 
 
     <button onclick="toggleSecret()">Cuba tekan kat sini ehehehe</button>
@@ -34,7 +35,19 @@
 	
 	<a href="/journal">📝 Open Our Journal</a>
 </div>
+<script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.innerText = "💖";
+        document.body.appendChild(heart);
 
+        setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 800);
+</script>
 <script>
 function toggleSecret() {
     const msg = document.getElementById("secret-message");

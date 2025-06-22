@@ -2,6 +2,15 @@ from flask import Flask, render_template, request, redirect, url_for
 import json
 import os
 from datetime import datetime
+import random  # <-- if not already there
+
+LOVE_QUOTES = [
+    "Every moment with you is a dream come true.",
+    "You are my today and all of my tomorrows.",
+    "I fall in love with you more every day.",
+    "You're the best part of my world.",
+    "You're the reason I believe in love again.",
+]
 
 app = Flask(__name__)
 JOURNAL_FILE = "journal.json"
@@ -18,7 +27,8 @@ def save_entries(entries):
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    quote = random.choice(LOVE_QUOTES)
+    return render_template("index.html", quote=quote)
 
 @app.route("/journal")
 def journal():
