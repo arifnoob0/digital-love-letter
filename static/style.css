@@ -1,11 +1,13 @@
+/* 🌸 General Body Styling */
 body {
     background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
     font-family: 'Segoe UI', sans-serif;
     color: #b30059;
     text-align: center;
-    padding: 50px;
+    padding: 40px;
 }
 
+/* 💌 Love Letter Box */
 .letter-container {
     background-color: #fff;
     border: 2px dashed #b30059;
@@ -16,6 +18,7 @@ body {
     box-shadow: 0 10px 20px rgba(179, 0, 89, 0.3);
 }
 
+/* 📝 Headings and Paragraphs */
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
@@ -26,34 +29,30 @@ p {
     line-height: 1.6;
 }
 
+/* 💖 Buttons */
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #b30059;
+    background-color: #ff66b2;
     color: white;
+    padding: 10px 20px;
+    margin-top: 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #ff4d94;
 }
 
+/* 💬 Secret Message Reveal */
 #secret-message {
     margin-top: 20px;
     font-weight: bold;
     color: #d10063;
 }
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #fff0f5;
-    text-align: center;
-    color: #b30059;
-    padding: 20px;
-}
 
+/* 🗒️ Journal Form */
 form {
     margin-bottom: 30px;
 }
@@ -66,15 +65,7 @@ input, textarea, select {
     border: 1px solid #ccc;
 }
 
-button {
-    background-color: #ff66b2;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
+/* 📘 Journal Entries */
 .entry {
     background-color: #ffe6f0;
     padding: 15px;
