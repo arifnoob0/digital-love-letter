@@ -1,10 +1,12 @@
 /* 🌸 General Body Styling */
 body {
-    background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
     font-family: 'Segoe UI', sans-serif;
-    color: #b30059;
+    background: linear-gradient(135deg, #ffc0cb, #ff69b4, #ff1493);
+    background-size: 400% 400%;
+    animation: romanticGradient 15s ease infinite;
     text-align: center;
-    padding: 40px;
+    color: #b30059;
+    padding: 20px;
 }
 
 /* 💌 Love Letter Box */
@@ -72,3 +74,10 @@ input, textarea, select {
     border-radius: 12px;
     margin-bottom: 20px;
 }
+
+@keyframes romanticGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
