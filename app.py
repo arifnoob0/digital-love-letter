@@ -22,7 +22,9 @@ def home():
 
 @app.route("/journal")
 def journal():
+    print("📝 /journal route loaded")
     entries = load_entries()
+    print("Entries:", entries)
     return render_template("journal.html", entries=entries)
 
 @app.route("/add", methods=["POST"])
